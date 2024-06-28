@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ product.name }}</title>
+</head>
+<body>
+    <h1>{{ product.name }}</h1>
+    <img src="{{ product.image.url }}" alt="{{ product.name }}" width="300" height="300">
+    <p>{{ product.description }}</p>
+    <p>{{ product.stylized_description|safe }}</p>
+    
+    <h2>Attributes</h2>
+    <ul>
+    {% for attr_value in product.productattributevalue_set.all %}
+        <li><strong>{{ attr_value.attribute.name }}:</strong> {{ attr_value.value }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

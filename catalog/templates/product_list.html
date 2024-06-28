@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Catalog</title>
+</head>
+<body>
+<h1>Product Catalog</h1>
+<ul>
+    {% for product in object_list %}
+    <li>
+        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+        <p>{{ product.stylized_description|safe }}</p>
+        <br>
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" width="100" height="100">>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
